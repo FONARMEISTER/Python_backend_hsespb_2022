@@ -1,7 +1,3 @@
-==========================
-FastAPI base project
-==========================
-
 Poetry initial setup
 -------------------------------------------------------------------------------
 - Configure Poetry **(should be done once globally)**:
