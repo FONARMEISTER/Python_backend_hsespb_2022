@@ -10,10 +10,10 @@ router = APIRouter(
 
 
 @router.post("/")
-async def user_auth(userin: UserIn):
+def user_auth(userin: UserIn):
     # Adds user to database and returns his unique id
     user_id = str(uuid4())
-    user = User
+    user = User(name=userin.name)
     user_db[user_id] = user
     user_operations[user_id] = []
     return user_id

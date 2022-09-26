@@ -761,15 +761,6 @@ category = "dev"
 optional = false
 python-versions = ">=3.6"
 
-
-[[package]]
-name = "uuid"
-version = "1.30"
-description = "Utility for random id generation"
-category = "dev"
-optional = "false"
-python-version = ">=3.9"
-
 [package.dependencies]
 distlib = ">=0.3.5,<1"
 filelock = ">=3.4.1,<4"

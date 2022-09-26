@@ -6,13 +6,8 @@ class UserIn(BaseModel):
 
 
 class User(BaseModel):
-    def __init__(self, userin: UserIn):
-        self.name = userin.name
-        self.balance = 100
-        self.operations = []
     name: str
-    balance: int
-    operations: list
+    balance: int = 100
 
 
 class Offer(BaseModel):
