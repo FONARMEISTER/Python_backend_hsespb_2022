@@ -1,24 +1,17 @@
-import time
-
 from fastapi import FastAPI, Request
 
-from app.routers import router
+from app.auth.router import router as auth_router
+from app.shop.router import router as shop_router
+from app.user.router import router as user_router
 
 app = FastAPI(
-    title="BaseApp",
-    description=("BaseApp"),
+    title="Online Trading Site",
+    description=("Online site for trading"),
     version="0.0.1",
     docs_url="/docs",
     redoc_url="/docs/redoc",
 )
 
-app.include_router(router)
-
-
-@app.middleware("http")
-async def add_process_time_header(request: Request, call_next):  # noqa: D103
-    start_time = time.time()
-    response = await call_next(request)
-    process_time = time.time() - start_time
-    response.headers["X-Process-Time"] = str(process_time)
-    return response
+app.include_router(auth_router)
+app.include_router(shop_router)
+app.include_router(user_router)
