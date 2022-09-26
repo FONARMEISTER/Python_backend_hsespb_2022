@@ -5,8 +5,8 @@ from app.shop.router import router as shop_router
 from app.user.router import router as user_router
 
 app = FastAPI(
-    title="Online Trading Site",
-    description=("Online site for trading"),
+    title="Online Trading service",
+    description=("Online service for trading"),
     version="0.0.1",
     docs_url="/docs",
     redoc_url="/docs/redoc",
