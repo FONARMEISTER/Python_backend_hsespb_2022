@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
 router = APIRouter(
-    prefix="user/manage"
+    prefix="/user/manage"
 )
 
 
@@ -12,6 +12,6 @@ async def buy_product(offer_id: int):
 
 
 @router.get("/sell/{offer_id}")
-async def remove_from_cart(offer_id: int):
+async def sell_product(offer_id: int):
     # TODO
     return

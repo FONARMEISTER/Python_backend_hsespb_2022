@@ -3,7 +3,7 @@ from fastapi import APIRouter
 from app.contracts import User
 
 router = APIRouter(
-    prefix="user/auth"
+    prefix="/user/auth"
 )
 
 
