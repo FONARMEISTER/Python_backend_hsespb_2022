@@ -1,4 +1,4 @@
-cOnline trading service.
+Online trading service.
 Provides:
 - User registration
 - Offer adding
