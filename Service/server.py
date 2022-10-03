@@ -16,6 +16,7 @@ class Service(protocol.OfferSearcherServicer):
         Returns:
             Response : count of offers fitting filter
         """
+        print(len(db_offers))
         return Response(in_stock=len(list(filter(lambda x: x[0] == request.tag and 
         (request.lower_price <= x[1] and x[1] <= request.upper_price), db_offers))))
 
@@ -27,6 +28,7 @@ def main():
     server.add_insecure_port('[::]:50051')
     server.start()
     server.wait_for_termination()
+
 
 if __name__ == '__main__':
     main()
