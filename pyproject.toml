@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "BaseAp1p"
+name = "conda_dev"
 version = "0.0.1"
 description = "Base grpc app"
 authors = ["Sarantsev Ilya <minidoc004.@gmail.com>"]
@@ -10,6 +10,7 @@ python = "^3.10"
 fastapi = "^0.78.0"
 uvicorn = {extras = ["standard"], version = "^0.17.6"}
 grpcio = "^1.49.1"
+googleapis-common-protos = "^1.56.4"
 
 [tool.poetry.dev-dependencies]
 black = "^22.3.0"
