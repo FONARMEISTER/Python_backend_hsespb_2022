@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+
+message OfferFilter{
+    string tag = 1;
+    int32 lower_price = 2;
+    int32 upper_price = 3;
+}
+
+message Response{
+    int32 in_stock = 1;  
+}
+
+service OfferSearcher{
+    rpc FindOffer(OfferFilter) returns (Response) {};
+}

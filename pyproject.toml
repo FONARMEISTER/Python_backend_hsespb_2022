@@ -1,14 +1,15 @@
 [tool.poetry]
-name = "BaseApp"
+name = "BaseAp1p"
 version = "0.0.1"
-description = "Base FastAPI app"
-authors = ["Shakirov Emil <shakirov.ere@gmail.com>"]
+description = "Base grpc app"
+authors = ["Sarantsev Ilya <minidoc004.@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.10"
 fastapi = "^0.78.0"
 uvicorn = {extras = ["standard"], version = "^0.17.6"}
+grpcio = "^1.49.1"
 
 [tool.poetry.dev-dependencies]
 black = "^22.3.0"
