@@ -1,1 +1,7 @@
-# Python_backend_hsespb_2022
+cOnline trading service.
+Provides:
+- User registration
+- Offer adding
+- deals
+Covered with tests.
+To run tests, just run `pytest`
