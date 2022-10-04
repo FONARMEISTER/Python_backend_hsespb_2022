@@ -1,1 +1,1 @@
-db_offers = []
+db_offers = {}

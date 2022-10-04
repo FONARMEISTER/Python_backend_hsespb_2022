@@ -18,7 +18,7 @@ class Service(protocol.OfferSearcherServicer):
         """
         print(len(db_offers))
         return Response(in_stock=len(list(filter(lambda x: x[0] == request.tag and 
-        (request.lower_price <= x[1] and x[1] <= request.upper_price), db_offers))))
+        (request.lower_price <= x[1] and x[1] <= request.upper_price), list(db_offers)))))
 
 
 def main():
