@@ -1,46 +1,48 @@
+from turtle import pu
 from fastapi import APIRouter
 
-from app import contracts
+import contracts
 
 router = APIRouter()
 
 
 @router.get("/")
-def read_root():  # noqa: D103
-    return {"Hello": "World"}
+def read_root():
+    return "Welcome to our bakery!"
 
 
-@router.get("/items/{item_id}")
-async def read_item(item_id: int):  # noqa: D103
-    return {"item_id": item_id}
+@router.get("/cakes/{cake_name}")
+async def cake_item(cake_name: str):
+    return {"cake_name": cake_name}
 
 
 @router.get("/users/")
-async def read_user(user_id: str, q: str | None = None):
-    if q:
-        return {"item_id": user_id, "q": q}
-    return {"item_id": user_id}
+async def read_user(user_id: str, name: str | None = None):
+    if name == "Oleg":
+        return "Do not service Olegs!"
+    return {"item_id": user_id, "name" : name}
 
 
-@router.get("/users/{user_id}/items/{item_id}")
-async def read_user_item(  # noqa: D103
-    user_id: int, item_id: str, q: str | None = None, short: bool = False
+@router.get("/users/{user_id}/cakes/{cake_name}")
+async def sell_cake_to_user(
+    user_id: int, cake_name: str, wishes: str | None = None
 ):
-    item = {"item_id": item_id, "owner_id": user_id}
-    if q:
-        item.update({"q": q})
-    if not short:
-        item.update(
-            {"description": "This is an amazing item that has a long description"}
-        )
-    return item
+    purchase = {"cake_name": cake_name, "owner_id": user_id}
+    if wishes and "tasty" in wishes:
+        purchase.update({"bonus_info": "tasty"})
+    else:
+        purchase.update({"bonus_info": "default"})
+    return purchase
 
 
-@router.post("/items/")
-async def create_item(item: contracts.Item):  # noqa: D103
-    item_dict = item.dict()
+@router.post("/cakes/")
+async def deliver_cake(cake: contracts.Cake):
+    cake_dict = cake.dict()
 
-    if item.tax:
-        price_with_tax = item.price + item.tax
-        item_dict.update({"price_with_tax": price_with_tax})
-    return item_dict
+    if cake.amount == 0:
+        return "You cannot deliver 0 cakes to us!"
+    if cake.price <= 0:
+        return "It's disadvantageous!"
+    new_price = cake.price * 1.1  #resale!
+    cake_dict.update({"price": new_price})
+    return cake_dict

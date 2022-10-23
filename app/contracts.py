@@ -1,10 +1,10 @@
 from pydantic import BaseModel
 
 
-class Item(BaseModel):
-    """Contract for item."""
+class Cake(BaseModel):
+    """Contract for cake."""
 
     name: str
     description: str | None = None
     price: float
-    tax: float | None = None
+    amount: int
